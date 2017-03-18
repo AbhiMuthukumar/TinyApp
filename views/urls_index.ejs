@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body style="font-size: 16px">
+    <h3 align = 'center'>TinyApp</h3>
+    <%- include partials/_header %>
+    <div style = "text-align: center;">
+      <% if (urls) { %>
+        <% for ( let url in urls ) { %>
+          <form method="POST" action="/urls/<%=url%>/delete">
+            <p>
+              <a href = "/u/<%= url%>" > <%=url%> </a> &nbsp;&rarr;&nbsp; <%= urls[url] %> &nbsp;&nbsp; <a href="/urls/<%= url %>"> Edit </a> &nbsp;&nbsp;
+              <input type="submit" value="Delete" />
+            </p>
+          </form>
+        <%} %>
+      <%} else { %>
+        <p> No URLs to show. </p>
+      <%}%>
+      <br><br>
+      <a href = '/urls/new' > Click here to shorten a new URL </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<title>TinyApp</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>
+  body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .header{
+    text-align: right;
+    font-size: 12px;
+    margin: 10px;
+  }
+</style>
+
+<% if (user !== "") {%>
+  <form class="header" method="POST" action="/logout" >
+    <label name="greetings"> Hello, <i> <%= user.email %> </i>! </label> &nbsp;
+    <input type="submit" value="Logout">
+  </form>
+<% } else { %>
+  <div class="header">
+    <a href="/login"> Login </a> &nbsp;&nbsp;
+    <a href="/register"> Register </a>
+  </div>
+<%}%>
